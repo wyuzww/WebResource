@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
+
+
+    <!-->配置session过期时间为30分钟<-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <!-->配置session过滤器<-->
+    <filter>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>com.ethan.filter.SessionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>/user/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+
+
+    <!--<error-page>-->
+        <!--&lt;!&ndash;<error-code>404</error-code>&ndash;&gt;-->
+        <!--<location>/WEB-INF/views/error.jsp</location>-->
+    <!--</error-page>-->
+
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <jsp-file>/WEB-INF/views/error.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/error</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <jsp-file>/WEB-INF/views/login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/user/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Exit</servlet-name>
+        <jsp-file>/WEB-INF/views/exit.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Exit</servlet-name>
+        <url-pattern>/exit</url-pattern>
+    </servlet-mapping>
+
+
+    <!--#####################################before############################################-->
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <jsp-file>/WEB-INF/views/before/register.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/user/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_main</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_main.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_main</servlet-name>
+        <url-pattern>/user/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>admin_main</servlet-name>
+        <jsp-file>/WEB-INF/views/after/main.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>admin_main</servlet-name>
+        <url-pattern>/admin/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_info</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_info.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_info</servlet-name>
+        <url-pattern>/user_info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ouser_resource</servlet-name>
+        <jsp-file>/WEB-INF/views/before/ouser_resource.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ouser_resource</servlet-name>
+        <url-pattern>/ouser_resource</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ouser_post</servlet-name>
+        <jsp-file>/WEB-INF/views/before/ouser_post.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ouser_post</servlet-name>
+        <url-pattern>/ouser_post</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>find_user</servlet-name>
+        <jsp-file>/WEB-INF/views/before/find_user.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>find_user</servlet-name>
+        <url-pattern>/find_user</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>updatePwd</servlet-name>
+        <jsp-file>/WEB-INF/views/before/update_pwd.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updatePwd</servlet-name>
+        <url-pattern>/user/update_pwd</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>resource</servlet-name>
+        <jsp-file>/WEB-INF/views/before/resource.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resource</servlet-name>
+        <url-pattern>/resource</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>forum</servlet-name>
+        <jsp-file>/WEB-INF/views/before/forum.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>forum</servlet-name>
+        <url-pattern>/forum</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_resource</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_resource.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_resource</servlet-name>
+        <url-pattern>/user/user_resource</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_follow</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_follow.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_follow</servlet-name>
+        <url-pattern>/user/user_follow</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_collect</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_collect.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_collect</servlet-name>
+        <url-pattern>/user/user_collect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>post</servlet-name>
+        <jsp-file>/WEB-INF/views/before/post.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>post</servlet-name>
+        <url-pattern>/user/post</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <jsp-file>/WEB-INF/views/before/upload.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/user/upload</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>post_details</servlet-name>
+        <jsp-file>/WEB-INF/views/before/post_details.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>post_details</servlet-name>
+        <url-pattern>/post/post_details</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>resource_details</servlet-name>
+        <jsp-file>/WEB-INF/views/before/resource_details.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resource_details</servlet-name>
+        <url-pattern>/resource/resource_details</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user_post</servlet-name>
+        <jsp-file>/WEB-INF/views/before/user_post.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_post</servlet-name>
+        <url-pattern>/user/user_post</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <jsp-file>/WEB-INF/views/before/main.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <!--#####################################after############################################-->
+    <servlet>
+        <servlet-name>studentManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/studentManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>studentManager</servlet-name>
+        <url-pattern>/admin/studentManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>teacherManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/teacherManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teacherManager</servlet-name>
+        <url-pattern>/admin/teacherManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registerManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/registerManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registerManager</servlet-name>
+        <url-pattern>/admin/registerManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>resourceManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/resourceManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resourceManager</servlet-name>
+        <url-pattern>/admin/resourceManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>categoryManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/categoryManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>categoryManager</servlet-name>
+        <url-pattern>/admin/categoryManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>postManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/postManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>postManager</servlet-name>
+        <url-pattern>/admin/postManager</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>commentManager</servlet-name>
+        <jsp-file>/WEB-INF/views/after/commentManager.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commentManager</servlet-name>
+        <url-pattern>/admin/commentManager</url-pattern>
+    </servlet-mapping>
+
+
+
+
+</web-app>
